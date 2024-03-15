@@ -20,6 +20,7 @@ func (r *UserRepository) GetAll() ([]entities.User, error) {
 	if err := r.DB.Find(&users).Error; err != nil {
 		return nil, err
 	}
+
 	return users, nil
 }
 
@@ -28,6 +29,7 @@ func (r *UserRepository) GetByID(id uint) (entities.User, error) {
 	if err := r.DB.First(&user, id).Error; err != nil {
 		return entities.User{}, err
 	}
+
 	return user, nil
 }
 
@@ -35,6 +37,7 @@ func (r *UserRepository) Create(user entities.User) (entities.User, error) {
 	if err := r.DB.Create(&user).Error; err != nil {
 		return entities.User{}, err
 	}
+
 	return user, nil
 }
 
@@ -52,6 +55,7 @@ func (r *UserRepository) Update(id uint, user entities.User) (entities.User, err
 	if err := r.DB.Save(&existingUser).Error; err != nil {
 		return entities.User{}, err
 	}
+
 	return existingUser, nil
 }
 
@@ -60,5 +64,6 @@ func (r *UserRepository) Delete(id uint) error {
 	if err := r.DB.Delete(&user, id).Error; err != nil {
 		return err
 	}
+
 	return nil
 }

@@ -1,15 +1,15 @@
 package app
 
 import (
-	"github.com/banggibima/go-echo-restful-api/internal/transport/rest"
+	"github.com/banggibima/go-echo-restful-api/internal/handlers"
 	"github.com/labstack/echo/v4"
 )
 
 type App struct {
-	UserHandler *rest.UserHandler
+	UserHandler *handlers.UserHandler
 }
 
-func NewApp(userHandler *rest.UserHandler) *App {
+func NewApp(userHandler *handlers.UserHandler) *App {
 	return &App{UserHandler: userHandler}
 }
 
